@@ -1,5 +1,7 @@
 package com.alekseymikhailov.tinkoffstocksservice.controller;
 
+import com.alekseymikhailov.tinkoffstocksservice.dto.FigiesDto;
+import com.alekseymikhailov.tinkoffstocksservice.dto.StockPricesDto;
 import com.alekseymikhailov.tinkoffstocksservice.dto.StocksDto;
 import com.alekseymikhailov.tinkoffstocksservice.dto.TickersDto;
 import com.alekseymikhailov.tinkoffstocksservice.model.Stock;
@@ -25,5 +27,10 @@ public class StockController {
     @PostMapping(value = "/stocks/getStocksByTickers")
     public StocksDto getStocksByTickers(@RequestBody TickersDto tickersDto){
         return stockService.getStocksByTickers(tickersDto);
+    }
+
+    @PostMapping("/prices")
+    public StockPricesDto getPrices(@RequestBody FigiesDto figiesDto){
+        return stockService.getPrices(figiesDto);
     }
 }
